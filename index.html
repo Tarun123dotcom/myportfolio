@@ -229,14 +229,80 @@
                 gap: 0.7rem;
             }
         }
+        .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #00bcd4;
+    margin-top: 0.5rem;
+}
+
+/* Mobile Nav Toggle */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        background-color: #222;
+        padding: 1rem;
+        border-radius: 12px;
+        margin-top: 1rem;
+        box-shadow: 0 4px 16px rgba(0, 188, 212, 0.1);
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    nav.active {
+        display: flex;
+    }
+}
+
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
             <div class="header-title">
-                <h1>Chakkkilam Tarun Siddartha</h1>
-                <nav>
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <div class="hamburger" onclick="toggleMenu()" style="margin-right: 1rem;">&#9776;</div>
+                    <h1>Chakkkilam Tarun Siddardha</h1>
+                </div>
+                <style>
+                html, body, .section, .project-card, .skill-item, .hobby-item, .cert-card, .achievements-section, #achievements, .resume-btn, .dark-toggle, nav, header, footer {
+                    transition: background 1s, color 1s, box-shadow 1s, border-color 1s;
+                }
+                body.dark-mode .achievements-section,
+                body.dark-mode #achievements-section *,
+                body.dark-mode #achievements {
+                    background: #23272f !important;
+                    color: #e0e7ef !important;
+                    color: white;
+                }
+                body.dark-mode .achievements-section h2 {
+                    color: white;
+                    color: #ffe082 !important;
+                    text-shadow: 0 2px 8px #23272f !important;
+                }
+                body.dark-mode .achievements-section div[style*="box-shadow"] {
+                    background: #23272f !important;
+                    box-shadow: 0 4px 16px rgba(0,188,212,0.07), 0 1px 4px rgba(255,193,7,0.06) !important;
+                    color: white;
+                }
+                body.dark-mode .achievements-section i {
+                    color: #ffe082 !important;
+                    color: white;
+                }
+                body.dark-mode .textColor {
+                    color: wheat;
+                }
+                </style>
+                <!-- <div class="hamburger" onclick="toggleMenu()">&#9776;</div> -->
+                <nav id="navbar">
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
@@ -250,6 +316,12 @@
             <img src="mypic.jpg" alt="Profile Picture" class="profile-pic" />
         </div>
     </header>
+    <script>
+    function toggleMenu() {
+        document.getElementById("navbar").classList.toggle("active");
+    }
+</script>
+
     <div class="container">
         <section id="about" class="section">
             <h2>About Me</h2>
@@ -448,7 +520,7 @@ body.dark-mode .cert-icon {
                         2<sup>nd</sup> Prize – Code Crafts Event
                     </div>
                     <div style="color:#222; font-size:1.05em; margin-top:0.3em;">
-                        <b>Among 30+ teams</b> – Recognized for <span style="color:#0097a7;font-weight:600;">exceptional problem-solving</span> and <span style="color:#0097a7;font-weight:600;">innovative coding</span> in a highly competitive environment.
+                        <b class="textColor">Among 30+ teams</b> <span class="textColor">– Recognized for</span> <span style="color:#0097a7;font-weight:600;">exceptional problem-solving</span> and <span style="color:#0097a7;font-weight:600;">innovative coding</span> <span class="textColor">in a highly competitive environment.</span>
                     </div>
                 </div>
             </div>
@@ -461,7 +533,7 @@ body.dark-mode .cert-icon {
                         3<sup>rd</sup> Prize – Mandal Level Art Exhibition
                     </div>
                     <div style="color:#222; font-size:1.05em; margin-top:0.3em;">
-                        Honored for <span style="color:#ff9800;font-weight:600;">outstanding painting skills</span> and <span style="color:#ff9800;font-weight:600;">creative excellence</span> among talented artists at the Mandal level.
+                       <span class="textColor"> Honored for</span> <span style="color:#ff9800;font-weight:600;">outstanding painting skills</span> <span class="textColor">and</span> <span style="color:#ff9800;font-weight:600;">creative excellence</span> <span class="textColor"> among talented artists at the Mandal level.</span>
                     </div>
                 </div>
             </div>
@@ -484,7 +556,7 @@ body.dark-mode .cert-icon {
 
     </div>
     <footer>
-        &copy; 2024 Tarun Siddartha. All rights reserved.
+        &copy; 2025 Tarun Siddartha. All rights reserved.
     </footer>
 </body>
 </html>
